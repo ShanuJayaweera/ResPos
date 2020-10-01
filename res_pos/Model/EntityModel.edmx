@@ -1,0 +1,1293 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+    <Schema Namespace="PosDBModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="auth_functions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="func_name" Type="varchar" MaxLength="100" />
+          <Property Name="form_id" Type="int" />
+        </EntityType>
+        <EntityType Name="auth_role_func">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="role_id" Type="int" />
+          <Property Name="func_id" Type="int" />
+          <Property Name="createdBy" Type="int" />
+          <Property Name="createdDate" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="auth_roles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="role_name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="auth_users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="role_id" Type="int" />
+          <Property Name="emp_id" Type="int" />
+          <Property Name="user_name" Type="varchar" MaxLength="50" />
+          <Property Name="user_password" Type="varchar" MaxLength="500" />
+        </EntityType>
+        <EntityType Name="db_cus_type">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="type_name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="db_customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+          <Property Name="address" Type="varchar" MaxLength="400" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="nic" Type="varchar" MaxLength="30" />
+          <Property Name="telephone" Type="varchar" MaxLength="30" />
+          <Property Name="mobile" Type="varchar" MaxLength="30" />
+          <Property Name="cusType" Type="int" />
+          <Property Name="createdBy" Type="int" />
+          <Property Name="createdDate" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="db_emp_type">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="type_name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="db_employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="name" Type="varchar" MaxLength="100" />
+          <Property Name="address" Type="varchar" MaxLength="500" />
+          <Property Name="nic" Type="varchar" MaxLength="50" />
+          <Property Name="telephone" Type="varchar" MaxLength="50" />
+          <Property Name="mobile" Type="varchar" MaxLength="50" />
+          <Property Name="email" Type="varchar" MaxLength="50" />
+          <Property Name="emp_type" Type="int" />
+          <Property Name="created_by" Type="int" />
+          <Property Name="created_date" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="db_inv_direct_sell_stock">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="pro_id" Type="int" />
+          <Property Name="qty" Type="float" />
+          <Property Name="inv_id" Type="int" />
+        </EntityType>
+        <EntityType Name="db_inv_raw_stock">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="inv_id" Type="int" />
+          <Property Name="pro_id" Type="int" />
+          <Property Name="qty" Type="float" />
+          <Property Name="unit" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="db_price">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pro_id" Type="int" />
+          <Property Name="buying_price" Type="float" />
+          <Property Name="selling_price" Type="float" />
+          <Property Name="profit" Type="float" />
+          <Property Name="discount" Type="float" />
+        </EntityType>
+        <EntityType Name="db_pro_category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="cat_name" Type="varchar" MaxLength="50" />
+          <Property Name="created_by" Type="int" />
+          <Property Name="created_date" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="db_product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pro_code" Type="varchar" MaxLength="50" />
+          <Property Name="pro_barcode" Type="varchar" MaxLength="500" />
+          <Property Name="pro_name" Type="varchar" MaxLength="50" />
+          <Property Name="pro_cat_id" Type="int" />
+          <Property Name="stock_cat_id" Type="int" />
+          <Property Name="created_by" Type="int" />
+          <Property Name="created_date" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="db_real_time_direct_sell_stock">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pro_id" Type="int" />
+          <Property Name="qty" Type="float" />
+        </EntityType>
+        <EntityType Name="db_real_time_raw_stock">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="pro_id" Type="int" />
+          <Property Name="qty" Type="float" />
+          <Property Name="unit" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="db_stk_invoice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="invoice_no" Type="varchar" MaxLength="100" />
+          <Property Name="stk_id" Type="int" />
+        </EntityType>
+        <EntityType Name="db_stock">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sup_id" Type="int" />
+          <Property Name="created_by" Type="int" />
+          <Property Name="created_date" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="db_stock_cat">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" Nullable="false" />
+          <Property Name="cat_name" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="db_supplier">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="sup_name" Type="varchar" MaxLength="100" />
+          <Property Name="sup_email" Type="varchar" MaxLength="50" />
+          <Property Name="sup_address" Type="varchar" MaxLength="500" />
+          <Property Name="sup_mobile" Type="varchar" MaxLength="50" />
+          <Property Name="sup_telephone" Type="varchar" MaxLength="50" />
+          <Property Name="created_dy" Type="int" />
+          <Property Name="created_date" Type="varchar" MaxLength="50" />
+        </EntityType>
+        <EntityType Name="sys_forms">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="int" StoreGeneratedPattern="Identity" Nullable="false" />
+          <Property Name="form_name" Type="varchar" MaxLength="100" />
+        </EntityType>
+        <Association Name="fk_customer_type">
+          <End Role="db_cus_type" Type="Self.db_cus_type" Multiplicity="0..1" />
+          <End Role="db_customer" Type="Self.db_customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="db_cus_type">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="db_customer">
+              <PropertyRef Name="cusType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_direct_stock_product(real_time)">
+          <End Role="db_product" Type="Self.db_product" Multiplicity="0..1" />
+          <End Role="db_real_time_direct_sell_stock" Type="Self.db_real_time_direct_sell_stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="db_product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="db_real_time_direct_sell_stock">
+              <PropertyRef Name="pro_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_emp_emp_type">
+          <End Role="db_emp_type" Type="Self.db_emp_type" Multiplicity="0..1" />
+          <End Role="db_employee" Type="Self.db_employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="db_emp_type">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="db_employee">
+              <PropertyRef Name="emp_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_func_form">
+          <End Role="sys_forms" Type="Self.sys_forms" Multiplicity="0..1" />
+          <End Role="auth_functions" Type="Self.auth_functions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sys_forms">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="auth_functions">
+              <PropertyRef Name="form_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_function_func_id">
+          <End Role="auth_functions" Type="Self.auth_functions" Multiplicity="0..1" />
+          <End Role="auth_role_func" Type="Self.auth_role_func" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="auth_functions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="auth_role_func">
+              <PropertyRef Name="func_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_inv_direct_stock_inv">
+          <End Role="db_stk_invoice" Type="Self.db_stk_invoice" Multiplicity="0..1" />
+          <End Role="db_inv_direct_sell_stock" Type="Self.db_inv_direct_sell_stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="db_stk_invoice">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="db_inv_direct_sell_stock">
+              <PropertyRef Name="inv_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_inv_direct_stock_product">
+          <End Role="db_product" Type="Self.db_product" Multiplicity="0..1" />
+          <End Role="db_inv_direct_sell_stock" Type="Self.db_inv_direct_sell_stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="db_product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="db_inv_direct_sell_stock">
+              <PropertyRef Name="pro_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_inv_raw_stock_inv">
+          <End Role="db_stk_invoice" Type="Self.db_stk_invoice" Multiplicity="0..1" />
+          <End Role="db_inv_raw_stock" Type="Self.db_inv_raw_stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="db_stk_invoice">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="db_inv_raw_stock">
+              <PropertyRef Name="inv_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_inv_raw_stock_product">
+          <End Role="db_product" Type="Self.db_product" Multiplicity="0..1" />
+          <End Role="db_inv_raw_stock" Type="Self.db_inv_raw_stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="db_product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="db_inv_raw_stock">
+              <PropertyRef Name="pro_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_pro_procat">
+          <End Role="db_pro_category" Type="Self.db_pro_category" Multiplicity="0..1" />
+          <End Role="db_product" Type="Self.db_product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="db_pro_category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="db_product">
+              <PropertyRef Name="pro_cat_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_pro_stockcat">
+          <End Role="db_stock_cat" Type="Self.db_stock_cat" Multiplicity="0..1" />
+          <End Role="db_product" Type="Self.db_product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="db_stock_cat">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="db_product">
+              <PropertyRef Name="stock_cat_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_product_price">
+          <End Role="db_product" Type="Self.db_product" Multiplicity="0..1" />
+          <End Role="db_price" Type="Self.db_price" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="db_product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="db_price">
+              <PropertyRef Name="pro_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_raw_stock_product(real_time)">
+          <End Role="db_product" Type="Self.db_product" Multiplicity="0..1" />
+          <End Role="db_real_time_raw_stock" Type="Self.db_real_time_raw_stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="db_product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="db_real_time_raw_stock">
+              <PropertyRef Name="pro_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_role_role_id">
+          <End Role="auth_roles" Type="Self.auth_roles" Multiplicity="0..1" />
+          <End Role="auth_role_func" Type="Self.auth_role_func" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="auth_roles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="auth_role_func">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_stk_invoice_stk">
+          <End Role="db_stock" Type="Self.db_stock" Multiplicity="0..1" />
+          <End Role="db_stk_invoice" Type="Self.db_stk_invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="db_stock">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="db_stk_invoice">
+              <PropertyRef Name="stk_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_stock_supplier">
+          <End Role="db_supplier" Type="Self.db_supplier" Multiplicity="0..1" />
+          <End Role="db_stock" Type="Self.db_stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="db_supplier">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="db_stock">
+              <PropertyRef Name="sup_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_user_emp">
+          <End Role="db_employee" Type="Self.db_employee" Multiplicity="0..1" />
+          <End Role="auth_users" Type="Self.auth_users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="db_employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="auth_users">
+              <PropertyRef Name="emp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_user_role">
+          <End Role="auth_roles" Type="Self.auth_roles" Multiplicity="0..1" />
+          <End Role="auth_users" Type="Self.auth_users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="auth_roles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="auth_users">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="PosDBModelStoreContainer">
+          <EntitySet Name="auth_functions" EntityType="Self.auth_functions" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="auth_role_func" EntityType="Self.auth_role_func" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="auth_roles" EntityType="Self.auth_roles" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="auth_users" EntityType="Self.auth_users" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="db_cus_type" EntityType="Self.db_cus_type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="db_customer" EntityType="Self.db_customer" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="db_emp_type" EntityType="Self.db_emp_type" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="db_employee" EntityType="Self.db_employee" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="db_inv_direct_sell_stock" EntityType="Self.db_inv_direct_sell_stock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="db_inv_raw_stock" EntityType="Self.db_inv_raw_stock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="db_price" EntityType="Self.db_price" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="db_pro_category" EntityType="Self.db_pro_category" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="db_product" EntityType="Self.db_product" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="db_real_time_direct_sell_stock" EntityType="Self.db_real_time_direct_sell_stock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="db_real_time_raw_stock" EntityType="Self.db_real_time_raw_stock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="db_stk_invoice" EntityType="Self.db_stk_invoice" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="db_stock" EntityType="Self.db_stock" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="db_stock_cat" EntityType="Self.db_stock_cat" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="db_supplier" EntityType="Self.db_supplier" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="sys_forms" EntityType="Self.sys_forms" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="fk_customer_type" Association="Self.fk_customer_type">
+            <End Role="db_cus_type" EntitySet="db_cus_type" />
+            <End Role="db_customer" EntitySet="db_customer" />
+          </AssociationSet>
+          <AssociationSet Name="fk_direct_stock_product(real_time)" Association="Self.fk_direct_stock_product(real_time)">
+            <End Role="db_product" EntitySet="db_product" />
+            <End Role="db_real_time_direct_sell_stock" EntitySet="db_real_time_direct_sell_stock" />
+          </AssociationSet>
+          <AssociationSet Name="fk_emp_emp_type" Association="Self.fk_emp_emp_type">
+            <End Role="db_emp_type" EntitySet="db_emp_type" />
+            <End Role="db_employee" EntitySet="db_employee" />
+          </AssociationSet>
+          <AssociationSet Name="fk_func_form" Association="Self.fk_func_form">
+            <End Role="sys_forms" EntitySet="sys_forms" />
+            <End Role="auth_functions" EntitySet="auth_functions" />
+          </AssociationSet>
+          <AssociationSet Name="fk_function_func_id" Association="Self.fk_function_func_id">
+            <End Role="auth_functions" EntitySet="auth_functions" />
+            <End Role="auth_role_func" EntitySet="auth_role_func" />
+          </AssociationSet>
+          <AssociationSet Name="fk_inv_direct_stock_inv" Association="Self.fk_inv_direct_stock_inv">
+            <End Role="db_stk_invoice" EntitySet="db_stk_invoice" />
+            <End Role="db_inv_direct_sell_stock" EntitySet="db_inv_direct_sell_stock" />
+          </AssociationSet>
+          <AssociationSet Name="fk_inv_direct_stock_product" Association="Self.fk_inv_direct_stock_product">
+            <End Role="db_product" EntitySet="db_product" />
+            <End Role="db_inv_direct_sell_stock" EntitySet="db_inv_direct_sell_stock" />
+          </AssociationSet>
+          <AssociationSet Name="fk_inv_raw_stock_inv" Association="Self.fk_inv_raw_stock_inv">
+            <End Role="db_stk_invoice" EntitySet="db_stk_invoice" />
+            <End Role="db_inv_raw_stock" EntitySet="db_inv_raw_stock" />
+          </AssociationSet>
+          <AssociationSet Name="fk_inv_raw_stock_product" Association="Self.fk_inv_raw_stock_product">
+            <End Role="db_product" EntitySet="db_product" />
+            <End Role="db_inv_raw_stock" EntitySet="db_inv_raw_stock" />
+          </AssociationSet>
+          <AssociationSet Name="fk_pro_procat" Association="Self.fk_pro_procat">
+            <End Role="db_pro_category" EntitySet="db_pro_category" />
+            <End Role="db_product" EntitySet="db_product" />
+          </AssociationSet>
+          <AssociationSet Name="fk_pro_stockcat" Association="Self.fk_pro_stockcat">
+            <End Role="db_stock_cat" EntitySet="db_stock_cat" />
+            <End Role="db_product" EntitySet="db_product" />
+          </AssociationSet>
+          <AssociationSet Name="fk_product_price" Association="Self.fk_product_price">
+            <End Role="db_product" EntitySet="db_product" />
+            <End Role="db_price" EntitySet="db_price" />
+          </AssociationSet>
+          <AssociationSet Name="fk_raw_stock_product(real_time)" Association="Self.fk_raw_stock_product(real_time)">
+            <End Role="db_product" EntitySet="db_product" />
+            <End Role="db_real_time_raw_stock" EntitySet="db_real_time_raw_stock" />
+          </AssociationSet>
+          <AssociationSet Name="fk_role_role_id" Association="Self.fk_role_role_id">
+            <End Role="auth_roles" EntitySet="auth_roles" />
+            <End Role="auth_role_func" EntitySet="auth_role_func" />
+          </AssociationSet>
+          <AssociationSet Name="fk_stk_invoice_stk" Association="Self.fk_stk_invoice_stk">
+            <End Role="db_stock" EntitySet="db_stock" />
+            <End Role="db_stk_invoice" EntitySet="db_stk_invoice" />
+          </AssociationSet>
+          <AssociationSet Name="fk_stock_supplier" Association="Self.fk_stock_supplier">
+            <End Role="db_supplier" EntitySet="db_supplier" />
+            <End Role="db_stock" EntitySet="db_stock" />
+          </AssociationSet>
+          <AssociationSet Name="fk_user_emp" Association="Self.fk_user_emp">
+            <End Role="db_employee" EntitySet="db_employee" />
+            <End Role="auth_users" EntitySet="auth_users" />
+          </AssociationSet>
+          <AssociationSet Name="fk_user_role" Association="Self.fk_user_role">
+            <End Role="auth_roles" EntitySet="auth_roles" />
+            <End Role="auth_users" EntitySet="auth_users" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema></edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="PosDBModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityContainer Name="PosDBEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="db_price" EntityType="PosDBModel.db_price" />
+          <EntitySet Name="db_pro_category" EntityType="PosDBModel.db_pro_category" />
+          <EntitySet Name="db_product" EntityType="PosDBModel.db_product" />
+          <EntitySet Name="db_stock_cat" EntityType="PosDBModel.db_stock_cat" />
+          <AssociationSet Name="fk_product_price" Association="PosDBModel.fk_product_price">
+            <End Role="db_product" EntitySet="db_product" />
+            <End Role="db_price" EntitySet="db_price" />
+          </AssociationSet>
+          <AssociationSet Name="fk_pro_procat" Association="PosDBModel.fk_pro_procat">
+            <End Role="db_pro_category" EntitySet="db_pro_category" />
+            <End Role="db_product" EntitySet="db_product" />
+          </AssociationSet>
+          <AssociationSet Name="fk_pro_stockcat" Association="PosDBModel.fk_pro_stockcat">
+            <End Role="db_stock_cat" EntitySet="db_stock_cat" />
+            <End Role="db_product" EntitySet="db_product" />
+          </AssociationSet>
+          <EntitySet Name="db_stock" EntityType="PosDBModel.db_stock" />
+          <EntitySet Name="db_supplier" EntityType="PosDBModel.db_supplier" />
+          <AssociationSet Name="fk_stock_supplier" Association="PosDBModel.fk_stock_supplier">
+            <End Role="db_supplier" EntitySet="db_supplier" />
+            <End Role="db_stock" EntitySet="db_stock" />
+          </AssociationSet>
+          <EntitySet Name="db_customer" EntityType="PosDBModel.db_customer" />
+          <EntitySet Name="auth_roles" EntityType="PosDBModel.auth_roles" />
+          <EntitySet Name="auth_users" EntityType="PosDBModel.auth_users" />
+          <AssociationSet Name="fk_user_role" Association="PosDBModel.fk_user_role">
+            <End Role="auth_roles" EntitySet="auth_roles" />
+            <End Role="auth_users" EntitySet="auth_users" />
+          </AssociationSet>
+          <EntitySet Name="db_cus_type" EntityType="PosDBModel.db_cus_type" />
+          <EntitySet Name="db_emp_type" EntityType="PosDBModel.db_emp_type" />
+          <EntitySet Name="db_employee" EntityType="PosDBModel.db_employee" />
+          <AssociationSet Name="fk_user_emp" Association="PosDBModel.fk_user_emp">
+            <End Role="db_employee" EntitySet="db_employee" />
+            <End Role="auth_users" EntitySet="auth_users" />
+          </AssociationSet>
+          <AssociationSet Name="fk_customer_type" Association="PosDBModel.fk_customer_type">
+            <End Role="db_cus_type" EntitySet="db_cus_type" />
+            <End Role="db_customer" EntitySet="db_customer" />
+          </AssociationSet>
+          <AssociationSet Name="fk_emp_emp_type" Association="PosDBModel.fk_emp_emp_type">
+            <End Role="db_emp_type" EntitySet="db_emp_type" />
+            <End Role="db_employee" EntitySet="db_employee" />
+          </AssociationSet>
+          <EntitySet Name="auth_functions" EntityType="PosDBModel.auth_functions" />
+          <EntitySet Name="sys_forms" EntityType="PosDBModel.sys_forms" />
+          <AssociationSet Name="fk_func_form" Association="PosDBModel.fk_func_form">
+            <End Role="sys_forms" EntitySet="sys_forms" />
+            <End Role="auth_functions" EntitySet="auth_functions" />
+          </AssociationSet>
+          <EntitySet Name="auth_role_func" EntityType="PosDBModel.auth_role_func" />
+          <AssociationSet Name="fk_function_func_id" Association="PosDBModel.fk_function_func_id">
+            <End Role="auth_functions" EntitySet="auth_functions" />
+            <End Role="auth_role_func" EntitySet="auth_role_func" />
+          </AssociationSet>
+          <AssociationSet Name="fk_role_role_id" Association="PosDBModel.fk_role_role_id">
+            <End Role="auth_roles" EntitySet="auth_roles" />
+            <End Role="auth_role_func" EntitySet="auth_role_func" />
+          </AssociationSet>
+          <EntitySet Name="db_inv_direct_sell_stock" EntityType="PosDBModel.db_inv_direct_sell_stock" />
+          <EntitySet Name="db_inv_raw_stock" EntityType="PosDBModel.db_inv_raw_stock" />
+          <EntitySet Name="db_stk_invoice" EntityType="PosDBModel.db_stk_invoice" />
+          <AssociationSet Name="fk_inv_direct_stock_inv" Association="PosDBModel.fk_inv_direct_stock_inv">
+            <End Role="db_stk_invoice" EntitySet="db_stk_invoice" />
+            <End Role="db_inv_direct_sell_stock" EntitySet="db_inv_direct_sell_stock" />
+          </AssociationSet>
+          <AssociationSet Name="fk_inv_direct_stock_product" Association="PosDBModel.fk_inv_direct_stock_product">
+            <End Role="db_product" EntitySet="db_product" />
+            <End Role="db_inv_direct_sell_stock" EntitySet="db_inv_direct_sell_stock" />
+          </AssociationSet>
+          <AssociationSet Name="fk_inv_raw_stock_inv" Association="PosDBModel.fk_inv_raw_stock_inv">
+            <End Role="db_stk_invoice" EntitySet="db_stk_invoice" />
+            <End Role="db_inv_raw_stock" EntitySet="db_inv_raw_stock" />
+          </AssociationSet>
+          <AssociationSet Name="fk_inv_raw_stock_product" Association="PosDBModel.fk_inv_raw_stock_product">
+            <End Role="db_product" EntitySet="db_product" />
+            <End Role="db_inv_raw_stock" EntitySet="db_inv_raw_stock" />
+          </AssociationSet>
+          <AssociationSet Name="fk_stk_invoice_stk" Association="PosDBModel.fk_stk_invoice_stk">
+            <End Role="db_stock" EntitySet="db_stock" />
+            <End Role="db_stk_invoice" EntitySet="db_stk_invoice" />
+          </AssociationSet>
+          <EntitySet Name="db_real_time_direct_sell_stock" EntityType="PosDBModel.db_real_time_direct_sell_stock" />
+          <EntitySet Name="db_real_time_raw_stock" EntityType="PosDBModel.db_real_time_raw_stock" />
+          <AssociationSet Name="fk_direct_stock_product_real_time_" Association="PosDBModel.fk_direct_stock_product_real_time_">
+            <End Role="db_product" EntitySet="db_product" />
+            <End Role="db_real_time_direct_sell_stock" EntitySet="db_real_time_direct_sell_stock" />
+          </AssociationSet>
+          <AssociationSet Name="fk_raw_stock_product_real_time_" Association="PosDBModel.fk_raw_stock_product_real_time_">
+            <End Role="db_product" EntitySet="db_product" />
+            <End Role="db_real_time_raw_stock" EntitySet="db_real_time_raw_stock" />
+          </AssociationSet>
+          </EntityContainer>
+        <EntityType Name="db_price">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="pro_id" Type="Int32" />
+          <Property Name="buying_price" Type="Double" />
+          <Property Name="selling_price" Type="Double" />
+          <Property Name="profit" Type="Double" />
+          <NavigationProperty Name="db_product" Relationship="PosDBModel.fk_product_price" FromRole="db_price" ToRole="db_product" />
+          <Property Name="discount" Type="Double" />
+        </EntityType>
+        <EntityType Name="db_pro_category">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="cat_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="created_by" Type="Int32" />
+          <Property Name="created_date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="db_product" Relationship="PosDBModel.fk_pro_procat" FromRole="db_pro_category" ToRole="db_product" />
+        </EntityType>
+        <EntityType Name="db_product">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="pro_code" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pro_barcode" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="pro_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="pro_cat_id" Type="Int32" />
+          <Property Name="stock_cat_id" Type="Int32" />
+          <Property Name="created_by" Type="Int32" />
+          <Property Name="created_date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="db_price" Relationship="PosDBModel.fk_product_price" FromRole="db_product" ToRole="db_price" />
+          <NavigationProperty Name="db_pro_category" Relationship="PosDBModel.fk_pro_procat" FromRole="db_product" ToRole="db_pro_category" />
+          <NavigationProperty Name="db_stock_cat" Relationship="PosDBModel.fk_pro_stockcat" FromRole="db_product" ToRole="db_stock_cat" />
+          <NavigationProperty Name="db_inv_direct_sell_stock" Relationship="PosDBModel.fk_inv_direct_stock_product" FromRole="db_product" ToRole="db_inv_direct_sell_stock" />
+          <NavigationProperty Name="db_inv_raw_stock" Relationship="PosDBModel.fk_inv_raw_stock_product" FromRole="db_product" ToRole="db_inv_raw_stock" />
+          <NavigationProperty Name="db_real_time_direct_sell_stock" Relationship="PosDBModel.fk_direct_stock_product_real_time_" FromRole="db_product" ToRole="db_real_time_direct_sell_stock" />
+          <NavigationProperty Name="db_real_time_raw_stock" Relationship="PosDBModel.fk_raw_stock_product_real_time_" FromRole="db_product" ToRole="db_real_time_raw_stock" />
+          </EntityType>
+        <EntityType Name="db_stock_cat">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="cat_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="db_product" Relationship="PosDBModel.fk_pro_stockcat" FromRole="db_stock_cat" ToRole="db_product" />
+        </EntityType>
+        <Association Name="fk_product_price">
+          <End Type="PosDBModel.db_product" Role="db_product" Multiplicity="0..1" />
+          <End Type="PosDBModel.db_price" Role="db_price" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="db_product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="db_price">
+              <PropertyRef Name="pro_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_pro_procat">
+          <End Type="PosDBModel.db_pro_category" Role="db_pro_category" Multiplicity="0..1" />
+          <End Type="PosDBModel.db_product" Role="db_product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="db_pro_category">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="db_product">
+              <PropertyRef Name="pro_cat_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_pro_stockcat">
+          <End Type="PosDBModel.db_stock_cat" Role="db_stock_cat" Multiplicity="0..1" />
+          <End Type="PosDBModel.db_product" Role="db_product" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="db_stock_cat">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="db_product">
+              <PropertyRef Name="stock_cat_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="db_stock">
+          <Key>
+            <PropertyRef Name="id" />
+          </Key>
+          <Property Name="id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sup_id" Type="Int32" />
+          <Property Name="created_by" Type="Int32" />
+          <Property Name="created_date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="db_supplier" Relationship="PosDBModel.fk_stock_supplier" FromRole="db_stock" ToRole="db_supplier" />
+          <NavigationProperty Name="db_stk_invoice" Relationship="PosDBModel.fk_stk_invoice_stk" FromRole="db_stock" ToRole="db_stk_invoice" />
+        </EntityType>
+        <EntityType Name="db_supplier">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="sup_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="sup_email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sup_address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="sup_mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="sup_telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="created_dy" Type="Int32" />
+          <Property Name="created_date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="db_stock" Relationship="PosDBModel.fk_stock_supplier" FromRole="db_supplier" ToRole="db_stock" />
+        </EntityType>
+        <Association Name="fk_stock_supplier">
+          <End Type="PosDBModel.db_supplier" Role="db_supplier" Multiplicity="0..1" />
+          <End Type="PosDBModel.db_stock" Role="db_stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="db_supplier">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="db_stock">
+              <PropertyRef Name="sup_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="db_customer">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="400" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="nic" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="telephone" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="mobile" Type="String" MaxLength="30" FixedLength="false" Unicode="false" />
+          <Property Name="cusType" Type="Int32" />
+          <Property Name="createdBy" Type="Int32" />
+          <Property Name="createdDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="db_cus_type" Relationship="PosDBModel.fk_customer_type" FromRole="db_customer" ToRole="db_cus_type" />
+        </EntityType>
+        <EntityType Name="auth_roles">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="role_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="auth_users" Relationship="PosDBModel.fk_user_role" FromRole="auth_roles" ToRole="auth_users" />
+          <NavigationProperty Name="auth_role_func" Relationship="PosDBModel.fk_role_role_id" FromRole="auth_roles" ToRole="auth_role_func" />
+        </EntityType>
+        <EntityType Name="auth_users">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="role_id" Type="Int32" />
+          <Property Name="emp_id" Type="Int32" />
+          <Property Name="user_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="user_password" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="auth_roles" Relationship="PosDBModel.fk_user_role" FromRole="auth_users" ToRole="auth_roles" />
+          <NavigationProperty Name="db_employee" Relationship="PosDBModel.fk_user_emp" FromRole="auth_users" ToRole="db_employee" />
+        </EntityType>
+        <Association Name="fk_user_role">
+          <End Type="PosDBModel.auth_roles" Role="auth_roles" Multiplicity="0..1" />
+          <End Type="PosDBModel.auth_users" Role="auth_users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="auth_roles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="auth_users">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="db_cus_type">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="type_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="db_customer" Relationship="PosDBModel.fk_customer_type" FromRole="db_cus_type" ToRole="db_customer" />
+        </EntityType>
+        <EntityType Name="db_emp_type">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="type_name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="db_employee" Relationship="PosDBModel.fk_emp_emp_type" FromRole="db_emp_type" ToRole="db_employee" />
+        </EntityType>
+        <EntityType Name="db_employee">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="address" Type="String" MaxLength="500" FixedLength="false" Unicode="false" />
+          <Property Name="nic" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="telephone" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="mobile" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="email" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <Property Name="emp_type" Type="Int32" />
+          <Property Name="created_by" Type="Int32" />
+          <Property Name="created_date" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="auth_users" Relationship="PosDBModel.fk_user_emp" FromRole="db_employee" ToRole="auth_users" />
+          <NavigationProperty Name="db_emp_type" Relationship="PosDBModel.fk_emp_emp_type" FromRole="db_employee" ToRole="db_emp_type" />
+        </EntityType>
+        <Association Name="fk_user_emp">
+          <End Type="PosDBModel.db_employee" Role="db_employee" Multiplicity="0..1" />
+          <End Type="PosDBModel.auth_users" Role="auth_users" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="db_employee">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="auth_users">
+              <PropertyRef Name="emp_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_customer_type">
+          <End Type="PosDBModel.db_cus_type" Role="db_cus_type" Multiplicity="0..1" />
+          <End Type="PosDBModel.db_customer" Role="db_customer" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="db_cus_type">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="db_customer">
+              <PropertyRef Name="cusType" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_emp_emp_type">
+          <End Type="PosDBModel.db_emp_type" Role="db_emp_type" Multiplicity="0..1" />
+          <End Type="PosDBModel.db_employee" Role="db_employee" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="db_emp_type">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="db_employee">
+              <PropertyRef Name="emp_type" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="auth_functions">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="func_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="form_id" Type="Int32" />
+          <NavigationProperty Name="sys_forms" Relationship="PosDBModel.fk_func_form" FromRole="auth_functions" ToRole="sys_forms" />
+          <NavigationProperty Name="auth_role_func" Relationship="PosDBModel.fk_function_func_id" FromRole="auth_functions" ToRole="auth_role_func" />
+        </EntityType>
+        <EntityType Name="sys_forms">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="form_name" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="auth_functions" Relationship="PosDBModel.fk_func_form" FromRole="sys_forms" ToRole="auth_functions" />
+        </EntityType>
+        <Association Name="fk_func_form">
+          <End Type="PosDBModel.sys_forms" Role="sys_forms" Multiplicity="0..1" />
+          <End Type="PosDBModel.auth_functions" Role="auth_functions" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="sys_forms">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="auth_functions">
+              <PropertyRef Name="form_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="auth_role_func">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="role_id" Type="Int32" />
+          <Property Name="func_id" Type="Int32" />
+          <Property Name="createdBy" Type="Int32" />
+          <Property Name="createdDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="auth_functions" Relationship="PosDBModel.fk_function_func_id" FromRole="auth_role_func" ToRole="auth_functions" />
+          <NavigationProperty Name="auth_roles" Relationship="PosDBModel.fk_role_role_id" FromRole="auth_role_func" ToRole="auth_roles" />
+        </EntityType>
+        <Association Name="fk_function_func_id">
+          <End Type="PosDBModel.auth_functions" Role="auth_functions" Multiplicity="0..1" />
+          <End Type="PosDBModel.auth_role_func" Role="auth_role_func" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="auth_functions">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="auth_role_func">
+              <PropertyRef Name="func_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_role_role_id">
+          <End Type="PosDBModel.auth_roles" Role="auth_roles" Multiplicity="0..1" />
+          <End Type="PosDBModel.auth_role_func" Role="auth_role_func" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="auth_roles">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="auth_role_func">
+              <PropertyRef Name="role_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="db_inv_direct_sell_stock">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" />
+          <Property Name="pro_id" Type="Int32" />
+          <Property Name="qty" Type="Double" />
+          <Property Name="inv_id" Type="Int32" />
+          <NavigationProperty Name="db_stk_invoice" Relationship="PosDBModel.fk_inv_direct_stock_inv" FromRole="db_inv_direct_sell_stock" ToRole="db_stk_invoice" />
+          <NavigationProperty Name="db_product" Relationship="PosDBModel.fk_inv_direct_stock_product" FromRole="db_inv_direct_sell_stock" ToRole="db_product" />
+        </EntityType>
+        <EntityType Name="db_inv_raw_stock">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="inv_id" Type="Int32" />
+          <Property Name="pro_id" Type="Int32" />
+          <Property Name="qty" Type="Double" />
+          <Property Name="unit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="db_stk_invoice" Relationship="PosDBModel.fk_inv_raw_stock_inv" FromRole="db_inv_raw_stock" ToRole="db_stk_invoice" />
+          <NavigationProperty Name="db_product" Relationship="PosDBModel.fk_inv_raw_stock_product" FromRole="db_inv_raw_stock" ToRole="db_product" />
+        </EntityType>
+        <EntityType Name="db_stk_invoice">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="invoice_no" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+          <Property Name="stk_id" Type="Int32" />
+          <NavigationProperty Name="db_inv_direct_sell_stock" Relationship="PosDBModel.fk_inv_direct_stock_inv" FromRole="db_stk_invoice" ToRole="db_inv_direct_sell_stock" />
+          <NavigationProperty Name="db_inv_raw_stock" Relationship="PosDBModel.fk_inv_raw_stock_inv" FromRole="db_stk_invoice" ToRole="db_inv_raw_stock" />
+          <NavigationProperty Name="db_stock" Relationship="PosDBModel.fk_stk_invoice_stk" FromRole="db_stk_invoice" ToRole="db_stock" />
+        </EntityType>
+        <Association Name="fk_inv_direct_stock_inv">
+          <End Type="PosDBModel.db_stk_invoice" Role="db_stk_invoice" Multiplicity="0..1" />
+          <End Type="PosDBModel.db_inv_direct_sell_stock" Role="db_inv_direct_sell_stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="db_stk_invoice">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="db_inv_direct_sell_stock">
+              <PropertyRef Name="inv_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_inv_direct_stock_product">
+          <End Type="PosDBModel.db_product" Role="db_product" Multiplicity="0..1" />
+          <End Type="PosDBModel.db_inv_direct_sell_stock" Role="db_inv_direct_sell_stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="db_product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="db_inv_direct_sell_stock">
+              <PropertyRef Name="pro_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_inv_raw_stock_inv">
+          <End Type="PosDBModel.db_stk_invoice" Role="db_stk_invoice" Multiplicity="0..1" />
+          <End Type="PosDBModel.db_inv_raw_stock" Role="db_inv_raw_stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="db_stk_invoice">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="db_inv_raw_stock">
+              <PropertyRef Name="inv_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_inv_raw_stock_product">
+          <End Type="PosDBModel.db_product" Role="db_product" Multiplicity="0..1" />
+          <End Type="PosDBModel.db_inv_raw_stock" Role="db_inv_raw_stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="db_product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="db_inv_raw_stock">
+              <PropertyRef Name="pro_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_stk_invoice_stk">
+          <End Type="PosDBModel.db_stock" Role="db_stock" Multiplicity="0..1" />
+          <End Type="PosDBModel.db_stk_invoice" Role="db_stk_invoice" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="db_stock">
+              <PropertyRef Name="id" />
+            </Principal>
+            <Dependent Role="db_stk_invoice">
+              <PropertyRef Name="stk_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityType Name="db_real_time_direct_sell_stock">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pro_id" Type="Int32" />
+          <Property Name="qty" Type="Double" />
+          <NavigationProperty Name="db_product" Relationship="PosDBModel.fk_direct_stock_product_real_time_" FromRole="db_real_time_direct_sell_stock" ToRole="db_product" />
+        </EntityType>
+        <EntityType Name="db_real_time_raw_stock">
+          <Key>
+            <PropertyRef Name="Id" />
+          </Key>
+          <Property Name="Id" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+          <Property Name="pro_id" Type="Int32" />
+          <Property Name="qty" Type="Double" />
+          <Property Name="unit" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="db_product" Relationship="PosDBModel.fk_raw_stock_product_real_time_" FromRole="db_real_time_raw_stock" ToRole="db_product" />
+        </EntityType>
+        <Association Name="fk_direct_stock_product_real_time_">
+          <End Type="PosDBModel.db_product" Role="db_product" Multiplicity="0..1" />
+          <End Type="PosDBModel.db_real_time_direct_sell_stock" Role="db_real_time_direct_sell_stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="db_product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="db_real_time_direct_sell_stock">
+              <PropertyRef Name="pro_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="fk_raw_stock_product_real_time_">
+          <End Type="PosDBModel.db_product" Role="db_product" Multiplicity="0..1" />
+          <End Type="PosDBModel.db_real_time_raw_stock" Role="db_real_time_raw_stock" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="db_product">
+              <PropertyRef Name="Id" />
+            </Principal>
+            <Dependent Role="db_real_time_raw_stock">
+              <PropertyRef Name="pro_id" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="PosDBModelStoreContainer" CdmEntityContainer="PosDBEntities">
+          <EntitySetMapping Name="db_price">
+            <EntityTypeMapping TypeName="PosDBModel.db_price">
+              <MappingFragment StoreEntitySet="db_price">
+                <ScalarProperty Name="discount" ColumnName="discount" />
+                <ScalarProperty Name="profit" ColumnName="profit" />
+                <ScalarProperty Name="selling_price" ColumnName="selling_price" />
+                <ScalarProperty Name="buying_price" ColumnName="buying_price" />
+                <ScalarProperty Name="pro_id" ColumnName="pro_id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="db_pro_category">
+            <EntityTypeMapping TypeName="PosDBModel.db_pro_category">
+              <MappingFragment StoreEntitySet="db_pro_category">
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="cat_name" ColumnName="cat_name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="db_product">
+            <EntityTypeMapping TypeName="PosDBModel.db_product">
+              <MappingFragment StoreEntitySet="db_product">
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="stock_cat_id" ColumnName="stock_cat_id" />
+                <ScalarProperty Name="pro_cat_id" ColumnName="pro_cat_id" />
+                <ScalarProperty Name="pro_name" ColumnName="pro_name" />
+                <ScalarProperty Name="pro_barcode" ColumnName="pro_barcode" />
+                <ScalarProperty Name="pro_code" ColumnName="pro_code" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="db_stock_cat">
+            <EntityTypeMapping TypeName="PosDBModel.db_stock_cat">
+              <MappingFragment StoreEntitySet="db_stock_cat">
+                <ScalarProperty Name="cat_name" ColumnName="cat_name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="db_stock">
+            <EntityTypeMapping TypeName="PosDBModel.db_stock">
+              <MappingFragment StoreEntitySet="db_stock">
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="sup_id" ColumnName="sup_id" />
+                <ScalarProperty Name="id" ColumnName="id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="db_supplier">
+            <EntityTypeMapping TypeName="PosDBModel.db_supplier">
+              <MappingFragment StoreEntitySet="db_supplier">
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="created_dy" ColumnName="created_dy" />
+                <ScalarProperty Name="sup_telephone" ColumnName="sup_telephone" />
+                <ScalarProperty Name="sup_mobile" ColumnName="sup_mobile" />
+                <ScalarProperty Name="sup_address" ColumnName="sup_address" />
+                <ScalarProperty Name="sup_email" ColumnName="sup_email" />
+                <ScalarProperty Name="sup_name" ColumnName="sup_name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="db_customer">
+            <EntityTypeMapping TypeName="PosDBModel.db_customer">
+              <MappingFragment StoreEntitySet="db_customer">
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="cusType" ColumnName="cusType" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="telephone" ColumnName="telephone" />
+                <ScalarProperty Name="nic" ColumnName="nic" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="auth_roles">
+            <EntityTypeMapping TypeName="PosDBModel.auth_roles">
+              <MappingFragment StoreEntitySet="auth_roles">
+                <ScalarProperty Name="role_name" ColumnName="role_name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="auth_users">
+            <EntityTypeMapping TypeName="PosDBModel.auth_users">
+              <MappingFragment StoreEntitySet="auth_users">
+                <ScalarProperty Name="user_password" ColumnName="user_password" />
+                <ScalarProperty Name="user_name" ColumnName="user_name" />
+                <ScalarProperty Name="emp_id" ColumnName="emp_id" />
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="db_cus_type">
+            <EntityTypeMapping TypeName="PosDBModel.db_cus_type">
+              <MappingFragment StoreEntitySet="db_cus_type">
+                <ScalarProperty Name="type_name" ColumnName="type_name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="db_emp_type">
+            <EntityTypeMapping TypeName="PosDBModel.db_emp_type">
+              <MappingFragment StoreEntitySet="db_emp_type">
+                <ScalarProperty Name="type_name" ColumnName="type_name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="db_employee">
+            <EntityTypeMapping TypeName="PosDBModel.db_employee">
+              <MappingFragment StoreEntitySet="db_employee">
+                <ScalarProperty Name="created_date" ColumnName="created_date" />
+                <ScalarProperty Name="created_by" ColumnName="created_by" />
+                <ScalarProperty Name="emp_type" ColumnName="emp_type" />
+                <ScalarProperty Name="email" ColumnName="email" />
+                <ScalarProperty Name="mobile" ColumnName="mobile" />
+                <ScalarProperty Name="telephone" ColumnName="telephone" />
+                <ScalarProperty Name="nic" ColumnName="nic" />
+                <ScalarProperty Name="address" ColumnName="address" />
+                <ScalarProperty Name="name" ColumnName="name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="auth_functions">
+            <EntityTypeMapping TypeName="PosDBModel.auth_functions">
+              <MappingFragment StoreEntitySet="auth_functions">
+                <ScalarProperty Name="form_id" ColumnName="form_id" />
+                <ScalarProperty Name="func_name" ColumnName="func_name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="sys_forms">
+            <EntityTypeMapping TypeName="PosDBModel.sys_forms">
+              <MappingFragment StoreEntitySet="sys_forms">
+                <ScalarProperty Name="form_name" ColumnName="form_name" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="auth_role_func">
+            <EntityTypeMapping TypeName="PosDBModel.auth_role_func">
+              <MappingFragment StoreEntitySet="auth_role_func">
+                <ScalarProperty Name="createdDate" ColumnName="createdDate" />
+                <ScalarProperty Name="createdBy" ColumnName="createdBy" />
+                <ScalarProperty Name="func_id" ColumnName="func_id" />
+                <ScalarProperty Name="role_id" ColumnName="role_id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="db_inv_direct_sell_stock">
+            <EntityTypeMapping TypeName="PosDBModel.db_inv_direct_sell_stock">
+              <MappingFragment StoreEntitySet="db_inv_direct_sell_stock">
+                <ScalarProperty Name="inv_id" ColumnName="inv_id" />
+                <ScalarProperty Name="qty" ColumnName="qty" />
+                <ScalarProperty Name="pro_id" ColumnName="pro_id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="db_inv_raw_stock">
+            <EntityTypeMapping TypeName="PosDBModel.db_inv_raw_stock">
+              <MappingFragment StoreEntitySet="db_inv_raw_stock">
+                <ScalarProperty Name="unit" ColumnName="unit" />
+                <ScalarProperty Name="qty" ColumnName="qty" />
+                <ScalarProperty Name="pro_id" ColumnName="pro_id" />
+                <ScalarProperty Name="inv_id" ColumnName="inv_id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="db_stk_invoice">
+            <EntityTypeMapping TypeName="PosDBModel.db_stk_invoice">
+              <MappingFragment StoreEntitySet="db_stk_invoice">
+                <ScalarProperty Name="stk_id" ColumnName="stk_id" />
+                <ScalarProperty Name="invoice_no" ColumnName="invoice_no" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="db_real_time_direct_sell_stock">
+            <EntityTypeMapping TypeName="PosDBModel.db_real_time_direct_sell_stock">
+              <MappingFragment StoreEntitySet="db_real_time_direct_sell_stock">
+                <ScalarProperty Name="qty" ColumnName="qty" />
+                <ScalarProperty Name="pro_id" ColumnName="pro_id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="db_real_time_raw_stock">
+            <EntityTypeMapping TypeName="PosDBModel.db_real_time_raw_stock">
+              <MappingFragment StoreEntitySet="db_real_time_raw_stock">
+                <ScalarProperty Name="unit" ColumnName="unit" />
+                <ScalarProperty Name="qty" ColumnName="qty" />
+                <ScalarProperty Name="pro_id" ColumnName="pro_id" />
+                <ScalarProperty Name="Id" ColumnName="Id" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="true" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>

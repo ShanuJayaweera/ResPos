@@ -1,0 +1,7 @@
+﻿Product - pro
+Category - cat
+Supplier - sup
+Form - Frm
+Stock - stk
+Invoice - inv
+Table - tbl

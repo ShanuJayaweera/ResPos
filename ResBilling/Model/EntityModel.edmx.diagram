@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="672b9c13939e40fb8468fd66a18df9ca" Name="Diagram1">
+        <EntityTypeShape EntityType="PosDBModel.auth_functions" Width="1.5" PointX="7.75" PointY="1.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PosDBModel.auth_role_func" Width="1.5" PointX="10" PointY="4.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PosDBModel.auth_roles" Width="1.5" PointX="7.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PosDBModel.auth_users" Width="1.5" PointX="10" PointY="16.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PosDBModel.bill_temp_bill" Width="1.5" PointX="5.25" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="PosDBModel.bill_ticket" Width="1.5" PointX="3" PointY="18.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PosDBModel.db_cus_type" Width="1.5" PointX="1.5" PointY="22.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="PosDBModel.db_customer" Width="1.5" PointX="0.75" PointY="15" IsExpanded="true" />
+        <EntityTypeShape EntityType="PosDBModel.db_emp_type" Width="1.5" PointX="1.5" PointY="31" IsExpanded="true" />
+        <EntityTypeShape EntityType="PosDBModel.db_employee" Width="1.5" PointX="0.75" PointY="26" IsExpanded="true" />
+        <EntityTypeShape EntityType="PosDBModel.db_inv_direct_sell_stock" Width="1.5" PointX="5.25" PointY="8" IsExpanded="true" />
+        <EntityTypeShape EntityType="PosDBModel.db_inv_raw_stock" Width="1.5" PointX="8.25" PointY="11" IsExpanded="true" />
+        <EntityTypeShape EntityType="PosDBModel.db_price" Width="1.5" PointX="5.25" PointY="17.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PosDBModel.db_pro_category" Width="1.5" PointX="0.75" PointY="11.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PosDBModel.db_product" Width="1.5" PointX="3" PointY="10.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PosDBModel.db_real_time_direct_sell_stock" Width="1.5" PointX="5.25" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="PosDBModel.db_real_time_raw_stock" Width="1.5" PointX="5.25" PointY="23.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="PosDBModel.db_stk_invoice" Width="1.5" PointX="3" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PosDBModel.db_stock" Width="1.5" PointX="0.75" PointY="5" IsExpanded="true" />
+        <EntityTypeShape EntityType="PosDBModel.db_stock_cat" Width="1.5" PointX="0.75" PointY="8.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="PosDBModel.db_supplier" Width="1.5" PointX="1.5" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="PosDBModel.my_tables" Width="1.5" PointX="0.75" PointY="19.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="PosDBModel.sys_forms" Width="1.5" PointX="5.5" PointY="5.25" IsExpanded="true" />
+        <AssociationConnector Association="PosDBModel.fk_func_form" ManuallyRouted="false" />
+        <AssociationConnector Association="PosDBModel.fk_function_func_id" ManuallyRouted="false" />
+        <AssociationConnector Association="PosDBModel.fk_role_role_id" ManuallyRouted="false" />
+        <AssociationConnector Association="PosDBModel.fk_user_role" ManuallyRouted="false" />
+        <AssociationConnector Association="PosDBModel.fk_user_emp" ManuallyRouted="false" />
+        <AssociationConnector Association="PosDBModel.fk_pro_temp_bill" ManuallyRouted="false" />
+        <AssociationConnector Association="PosDBModel.fk_ticket_temp_bill" ManuallyRouted="false" />
+        <AssociationConnector Association="PosDBModel.fk_customer_steward" ManuallyRouted="false" />
+        <AssociationConnector Association="PosDBModel.fk_customer_table" ManuallyRouted="false" />
+        <AssociationConnector Association="PosDBModel.fk_customer_ticket" ManuallyRouted="false" />
+        <AssociationConnector Association="PosDBModel.fk_customer_type" ManuallyRouted="false" />
+        <AssociationConnector Association="PosDBModel.fk_emp_emp_type" ManuallyRouted="false" />
+        <AssociationConnector Association="PosDBModel.fk_inv_direct_stock_inv" ManuallyRouted="false" />
+        <AssociationConnector Association="PosDBModel.fk_inv_direct_stock_product" ManuallyRouted="false" />
+        <AssociationConnector Association="PosDBModel.fk_inv_raw_stock_inv" ManuallyRouted="false" />
+        <AssociationConnector Association="PosDBModel.fk_inv_raw_stock_product" ManuallyRouted="false" />
+        <AssociationConnector Association="PosDBModel.fk_product_price" ManuallyRouted="false" />
+        <AssociationConnector Association="PosDBModel.fk_pro_procat" ManuallyRouted="false" />
+        <AssociationConnector Association="PosDBModel.fk_direct_stock_product_real_time_" ManuallyRouted="false" />
+        <AssociationConnector Association="PosDBModel.fk_pro_stockcat" ManuallyRouted="false" />
+        <AssociationConnector Association="PosDBModel.fk_raw_stock_product_real_time_" ManuallyRouted="false" />
+        <AssociationConnector Association="PosDBModel.fk_stk_invoice_stk" ManuallyRouted="false" />
+        <AssociationConnector Association="PosDBModel.fk_stock_supplier" ManuallyRouted="false" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

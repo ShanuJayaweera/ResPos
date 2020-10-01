@@ -1,0 +1,496 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.props" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{21586DD7-5CEC-4DCA-9482-AD9A1EC92684}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>res_pos</RootNamespace>
+    <AssemblyName>res_pos</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>C:\Users\shana\Desktop\mySetup\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ProductName>Test Product</ProductName>
+    <PublisherName>Shanaka</PublisherName>
+    <SuiteName>Shanaka</SuiteName>
+    <ApplicationRevision>2</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <CreateDesktopShortcut>true</CreateDesktopShortcut>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>EBABEEB47CA0D76639C6086CFB79D31D73A29E2C</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>res_pos_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>true</SignManifests>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.4.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Design, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="MetroFramework.Fonts, Version=1.4.0.0, Culture=neutral, PublicKeyToken=5f91a84759bf584a, processorArchitecture=MSIL">
+      <HintPath>..\packages\MetroModernUI.1.4.0.0\lib\net\MetroFramework.Fonts.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Classes\AuthClasess\FormClass.cs" />
+    <Compile Include="Classes\AuthClasess\FunctionClass.cs" />
+    <Compile Include="Classes\AuthClasess\RoleClass.cs" />
+    <Compile Include="Classes\AuthClasess\RoleFuncClass.cs" />
+    <Compile Include="Classes\AuthClasess\UserClass.cs" />
+    <Compile Include="Classes\CustomerClass.cs" />
+    <Compile Include="Classes\EmployeeClass.cs" />
+    <Compile Include="Classes\MessageClass.cs" />
+    <Compile Include="Classes\PriceClass.cs" />
+    <Compile Include="Classes\ProductCategoryClass.cs" />
+    <Compile Include="Classes\ProductClass.cs" />
+    <Compile Include="Classes\StockCategoryClass.cs" />
+    <Compile Include="Classes\StockClass.cs" />
+    <Compile Include="Classes\StockInvoiceClass.cs" />
+    <Compile Include="Classes\SupplierClass.cs" />
+    <Compile Include="common_moduls.cs" />
+    <Compile Include="Interfaces\AuthInterfaces\IForm.cs" />
+    <Compile Include="Interfaces\AuthInterfaces\IFunctions.cs" />
+    <Compile Include="Interfaces\AuthInterfaces\IRoleFunc.cs" />
+    <Compile Include="Interfaces\AuthInterfaces\IRoles.cs" />
+    <Compile Include="Interfaces\ICustomer.cs" />
+    <Compile Include="Interfaces\IEmployee.cs" />
+    <Compile Include="Interfaces\IInvoice.cs" />
+    <Compile Include="Interfaces\IPrice.cs" />
+    <Compile Include="Interfaces\IProduct.cs" />
+    <Compile Include="Interfaces\IProductCategory.cs" />
+    <Compile Include="Interfaces\ICustomUI.cs" />
+    <Compile Include="Interfaces\IRealTimeStock.cs" />
+    <Compile Include="Interfaces\IStock.cs" />
+    <Compile Include="Interfaces\ISupplier.cs" />
+    <Compile Include="Interfaces\AuthInterfaces\IUsers.cs" />
+    <Compile Include="Model\auth_functions.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\auth_roles.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\auth_role_func.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\auth_users.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\db_customer.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\db_cus_type.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\db_employee.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\db_emp_type.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\db_inv_direct_sell_stock.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\db_inv_raw_stock.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\db_price.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\db_product.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\db_pro_category.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\db_real_time_direct_sell_stock.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\db_real_time_raw_stock.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\db_stk_invoice.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\db_stock.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\db_stock_cat.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\db_supplier.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EntityModel.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityModel.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EntityModel.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="Model\EntityModel.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntityModel.edmx</DependentUpon>
+    </Compile>
+    <Compile Include="Model\sys_forms.cs">
+      <DependentUpon>EntityModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SystemModules\Authentication\ucChangePassword.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SystemModules\Authentication\ucChangePassword.Designer.cs">
+      <DependentUpon>ucChangePassword.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemModules\Authentication\frmFunctions.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemModules\Authentication\frmFunctions.Designer.cs">
+      <DependentUpon>frmFunctions.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemModules\Authentication\frmLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemModules\Authentication\frmLogin.Designer.cs">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemModules\Authentication\frmRegUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemModules\Authentication\frmRegUser.Designer.cs">
+      <DependentUpon>frmRegUser.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemModules\Authentication\frmRoleFunction.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemModules\Authentication\frmRoleFunction.Designer.cs">
+      <DependentUpon>frmRoleFunction.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemModules\Authentication\frmRoles.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemModules\Authentication\frmRoles.Designer.cs">
+      <DependentUpon>frmRoles.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemModules\Authentication\ucUserProfile.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="SystemModules\Authentication\ucUserProfile.Designer.cs">
+      <DependentUpon>ucUserProfile.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemModules\Customer\frmCustomer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemModules\Customer\frmCustomer.Designer.cs">
+      <DependentUpon>frmCustomer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemModules\Dashboard\frmAuthDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemModules\Dashboard\frmAuthDashboard.Designer.cs">
+      <DependentUpon>frmAuthDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemModules\Dashboard\frmBasicDataDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemModules\Dashboard\frmBasicDataDashboard.Designer.cs">
+      <DependentUpon>frmBasicDataDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemModules\Dashboard\frmMainDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemModules\Dashboard\frmMainDashboard.Designer.cs">
+      <DependentUpon>frmMainDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemModules\Dashboard\frmStockDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemModules\Dashboard\frmStockDashboard.Designer.cs">
+      <DependentUpon>frmStockDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemModules\Employee\frmEmployee.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemModules\Employee\frmEmployee.Designer.cs">
+      <DependentUpon>frmEmployee.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemModules\Product\frmPrice.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemModules\Product\frmPrice.Designer.cs">
+      <DependentUpon>frmPrice.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemModules\Product\frmProduct.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemModules\Product\frmProduct.Designer.cs">
+      <DependentUpon>frmProduct.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemModules\Product\frmProCat.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemModules\Product\frmProCat.Designer.cs">
+      <DependentUpon>frmProCat.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="SystemModules\Stock\frmRealTimeStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemModules\Stock\frmRealTimeStock.Designer.cs">
+      <DependentUpon>frmRealTimeStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemModules\Stock\frmSetSupplierAndDate.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemModules\Stock\frmSetSupplierAndDate.Designer.cs">
+      <DependentUpon>frmSetSupplierAndDate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemModules\Stock\frmStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemModules\Stock\frmStock.Designer.cs">
+      <DependentUpon>frmStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemModules\Stock\frmViewStock.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemModules\Stock\frmViewStock.Designer.cs">
+      <DependentUpon>frmViewStock.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SystemModules\Supplier\frmSupplier.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SystemModules\Supplier\frmSupplier.Designer.cs">
+      <DependentUpon>frmSupplier.cs</DependentUpon>
+    </Compile>
+    <Compile Include="VM\LoggedUser.cs" />
+    <Compile Include="VM\ViewStockVM.cs" />
+    <EmbeddedResource Include="SystemModules\Authentication\ucChangePassword.resx">
+      <DependentUpon>ucChangePassword.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemModules\Authentication\frmFunctions.resx">
+      <DependentUpon>frmFunctions.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemModules\Authentication\frmLogin.resx">
+      <DependentUpon>frmLogin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemModules\Authentication\frmRegUser.resx">
+      <DependentUpon>frmRegUser.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemModules\Authentication\frmRoleFunction.resx">
+      <DependentUpon>frmRoleFunction.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemModules\Authentication\frmRoles.resx">
+      <DependentUpon>frmRoles.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemModules\Authentication\ucUserProfile.resx">
+      <DependentUpon>ucUserProfile.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemModules\Customer\frmCustomer.resx">
+      <DependentUpon>frmCustomer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemModules\Dashboard\frmAuthDashboard.resx">
+      <DependentUpon>frmAuthDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemModules\Dashboard\frmBasicDataDashboard.resx">
+      <DependentUpon>frmBasicDataDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemModules\Dashboard\frmMainDashboard.resx">
+      <DependentUpon>frmMainDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemModules\Dashboard\frmStockDashboard.resx">
+      <DependentUpon>frmStockDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemModules\Employee\frmEmployee.resx">
+      <DependentUpon>frmEmployee.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemModules\Product\frmPrice.resx">
+      <DependentUpon>frmPrice.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemModules\Product\frmProduct.resx">
+      <DependentUpon>frmProduct.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemModules\Product\frmProCat.resx">
+      <DependentUpon>frmProCat.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="SystemModules\Stock\frmRealTimeStock.resx">
+      <DependentUpon>frmRealTimeStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemModules\Stock\frmSetSupplierAndDate.resx">
+      <DependentUpon>frmSetSupplierAndDate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemModules\Stock\frmStock.resx">
+      <DependentUpon>frmStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemModules\Stock\frmViewStock.resx">
+      <DependentUpon>frmViewStock.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SystemModules\Supplier\frmSupplier.resx">
+      <DependentUpon>frmSupplier.cs</DependentUpon>
+    </EmbeddedResource>
+    <EntityDeploy Include="Model\EntityModel.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>EntityModel.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="Model\EntityModel.edmx.diagram">
+      <DependentUpon>EntityModel.edmx</DependentUpon>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\DataSources\res_pos.Model.auth_functions.datasource" />
+    <None Include="Properties\DataSources\res_pos.Model.auth_roles.datasource" />
+    <None Include="Properties\DataSources\res_pos.Model.auth_role_func.datasource" />
+    <None Include="Properties\DataSources\res_pos.Model.db_employee.datasource" />
+    <None Include="Properties\DataSources\res_pos.Model.db_product.datasource" />
+    <None Include="Properties\DataSources\res_pos.Model.db_supplier.datasource" />
+    <None Include="Properties\DataSources\res_pos.Model.sys_forms.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="res_pos_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\login_img.png" />
+    <None Include="Resources\login_img1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="DB\PosDB.mdf">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="DB\PosDB_log.ldf">
+      <DependentUpon>PosDB.mdf</DependentUpon>
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </Content>
+    <Content Include="messagePrefix.txt" />
+    <Content Include="Model\EntityModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EntityModel.edmx</DependentUpon>
+      <LastGenOutput>EntityModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="Model\EntityModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>EntityModel.edmx</DependentUpon>
+      <LastGenOutput>EntityModel.cs</LastGenOutput>
+    </Content>
+    <Content Include="prefix.txt" />
+    <None Include="Resources\analytics.png" />
+    <None Include="Resources\business-and-finance.png" />
+    <None Include="Resources\management.png" />
+    <None Include="Resources\computer2.png" />
+    <None Include="Resources\computer1.png" />
+    <None Include="Resources\computer.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.props')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.props'))" />
+    <Error Condition="!Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" Text="$([System.String]::Format('$(ErrorText)', '..\packages\EntityFramework.6.4.0\build\EntityFramework.targets'))" />
+  </Target>
+  <Import Project="..\packages\EntityFramework.6.4.0\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.4.0\build\EntityFramework.targets')" />
+</Project>

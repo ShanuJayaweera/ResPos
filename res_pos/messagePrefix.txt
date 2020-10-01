@@ -1,0 +1,4 @@
+﻿done = Success
+exist = Recode Already Exist
+not_exist = Recode Not Exist
+Please fill all fields

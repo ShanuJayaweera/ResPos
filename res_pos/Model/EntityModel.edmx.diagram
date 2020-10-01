@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="c7b43361020b4d998166dd2fe39abb77" Name="Diagram1" ZoomLevel="74">
+        <EntityTypeShape EntityType="PosDBModel.db_price" Width="1.5" PointX="5.25" PointY="5.25" />
+        <EntityTypeShape EntityType="PosDBModel.db_pro_category" Width="1.5" PointX="0.75" PointY="0.75" />
+        <EntityTypeShape EntityType="PosDBModel.db_product" Width="1.5" PointX="3" PointY="3.125" />
+        <EntityTypeShape EntityType="PosDBModel.db_stock_cat" Width="1.5" PointX="0.75" PointY="4" />
+        <AssociationConnector Association="PosDBModel.fk_product_price" />
+        <AssociationConnector Association="PosDBModel.fk_pro_procat" />
+        <AssociationConnector Association="PosDBModel.fk_pro_stockcat" />
+        <EntityTypeShape EntityType="PosDBModel.db_stock" Width="1.5" PointX="9.625" PointY="3.125" />
+        <EntityTypeShape EntityType="PosDBModel.db_supplier" Width="1.5" PointX="7.375" PointY="3.125" />
+        <AssociationConnector Association="PosDBModel.fk_stock_supplier" />
+        <EntityTypeShape EntityType="PosDBModel.db_customer" Width="1.5" PointX="0.75" PointY="7.75" />
+        <EntityTypeShape EntityType="PosDBModel.auth_roles" Width="1.5" PointX="3.375" PointY="10.625" />
+        <EntityTypeShape EntityType="PosDBModel.auth_users" Width="1.5" PointX="5.625" PointY="10.375" />
+        <AssociationConnector Association="PosDBModel.fk_user_role" />
+        <EntityTypeShape EntityType="PosDBModel.db_cus_type" Width="1.5" PointX="0.75" PointY="12.5" />
+        <EntityTypeShape EntityType="PosDBModel.db_emp_type" Width="1.5" PointX="8.375" PointY="10.875" />
+        <EntityTypeShape EntityType="PosDBModel.db_employee" Width="1.5" PointX="10.625" PointY="10" />
+        <AssociationConnector Association="PosDBModel.fk_user_emp" />
+        <AssociationConnector Association="PosDBModel.fk_customer_type" />
+        <AssociationConnector Association="PosDBModel.fk_emp_emp_type" />
+        <EntityTypeShape EntityType="PosDBModel.auth_functions" Width="1.5" PointX="14.625" PointY="3.875" />
+        <EntityTypeShape EntityType="PosDBModel.sys_forms" Width="1.5" PointX="12.375" PointY="4.125" />
+        <AssociationConnector Association="PosDBModel.fk_func_form" />
+        <EntityTypeShape EntityType="PosDBModel.auth_role_func" Width="1.5" PointX="16.875" PointY="7" />
+        <AssociationConnector Association="PosDBModel.fk_function_func_id" />
+        <AssociationConnector Association="PosDBModel.fk_role_role_id" />
+        <EntityTypeShape EntityType="PosDBModel.db_inv_direct_sell_stock" Width="1.5" PointX="14.125" PointY="11.75" />
+        <EntityTypeShape EntityType="PosDBModel.db_inv_raw_stock" Width="1.5" PointX="14.125" PointY="8.625" />
+        <EntityTypeShape EntityType="PosDBModel.db_stk_invoice" Width="1.5" PointX="11.875" PointY="14.375" />
+        <AssociationConnector Association="PosDBModel.fk_inv_direct_stock_inv" />
+        <AssociationConnector Association="PosDBModel.fk_inv_direct_stock_product" />
+        <AssociationConnector Association="PosDBModel.fk_inv_raw_stock_inv" />
+        <AssociationConnector Association="PosDBModel.fk_inv_raw_stock_product" />
+        <AssociationConnector Association="PosDBModel.fk_stk_invoice_stk" />
+        <EntityTypeShape EntityType="PosDBModel.db_real_time_direct_sell_stock" Width="1.5" PointX="5.25" PointY="0.75" />
+        <EntityTypeShape EntityType="PosDBModel.db_real_time_raw_stock" Width="1.5" PointX="5.25" PointY="15.25" />
+        <AssociationConnector Association="PosDBModel.fk_direct_stock_product_real_time_" />
+        <AssociationConnector Association="PosDBModel.fk_raw_stock_product_real_time_" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>
